@@ -5,14 +5,17 @@ namespace App\Controller;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\MenuRepository;
 
 class MenuController extends AbstractController{
 
     #[Route('/menu',name:'app_menu')]
-    public function index(EntityManagerInterface $entityManager){
+    public function index(MenuRepository $menuRepository){
 
-        $menus = $entityManager->getRepository(Menu::class)->findAll();
-        return $this->render('menu/index.html.twig');
+        $menus = $menuRepository->findAll();
+        //dd($menus);
+
+        return $this->render('menu/index.html.twig', ['menus' => $menus]);
 
     }
 }
