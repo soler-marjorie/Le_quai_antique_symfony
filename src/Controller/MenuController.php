@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\MenuRepository;
@@ -15,7 +14,7 @@ class MenuController extends AbstractController{
         $menus = $menuRepository->findAll();
         //dd($menus);
 
-        return $this->render('menu/index.html.twig', ['menus' => $menus]);
+        return $this->render('menu/index.html.twig');
 
     }
 }

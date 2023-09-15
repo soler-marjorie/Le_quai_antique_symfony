@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,9 +33,9 @@
     <body>
         {% include 'includes/_header.html.twig' %}
 
-        <main class="container">
-            {% block container %}{% endblock %}
-        </main>
+
+        {% block main %}{% endblock %}
+
 
         {% include 'includes/_footer.html.twig' %}  
 
