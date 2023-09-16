@@ -35,7 +35,8 @@
     <!-- header -->
     <div class="container">
         <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <div class="col mb-2 mb-md-0">
+                <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li class="nav-item">
                         <a href="{{ path('app_home')}}" class="nav-link px-2">Accueil</a>
                     </li>
@@ -45,15 +46,20 @@
                     <li class="nav-item">
                         <a href="{{ path('app_contact')}}" class="nav-link px-2">Contact</a>
                     </li>
-            </ul>
+                </ul>
+            </div>
 
-            <div class="col-md-3 mb-2 mb-md-0">
+            <div class="col text-end mb-2 mb-md-0 logo">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    <img src="assets/img/logo.png" alt="Logo" width="200" height="200">
+                    <img src="assets/img/logo.png" alt="Logo" width="200" height="200" style="border-radius:50%;">
                 </a>
             </div>
 
-            <div class="col-md-3 text-end">
+            <div class="col text-end">
+                <button href="" class="btn btn-primary">Réservez une table</button>
+            </div>
+
+            <div class="col text-end">
                 <button type="button" class="btn btn-outline-primary me-2">S'inscrire</button>
                 <button type="button" class="btn btn-primary">Se connecter</button>
             </div>

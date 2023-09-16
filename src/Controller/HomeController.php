@@ -16,4 +16,16 @@ class HomeController extends AbstractController{
 
         return $this->render('home/index.html.twig', ['homes' => $homes]);
     }
+
+    #[Route('/{id}',name:'app_home_show')]
+    public function show($id, HomeRepository $homeRepository){
+
+        $home = $homeRepository->findOneBy(['id' => $id]);
+
+        if(is_null($home)){
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('home/show.html.twig', ['home' => $home]);
+    }
 }

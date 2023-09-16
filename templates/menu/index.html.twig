@@ -2,6 +2,29 @@
 
 {% block main %}
 
+<main class="container menu">
     <h1>La carte du restaurant</h1>
+
+    {% for formule in formules %}
+        
+        <h2>{{formule.formules}} - {{formule.plat}}</h2>
+
+        {% for menu in menus %} 
+        <div class="row">
+            {% if menu.plat == formule.plat%}
+                <div class="col-sm" style="width: 18rem;">
+                    <h3>{{menu.title}}</h3>
+                    <p>{{menu.description}}</p>
+                    <p>{{menu.price}}€</p>
+                </div> 
+            {% endif %}
+        </div>    
+        {% endfor %}
+
+        
+        
+    {% endfor %}
+
+</main>
 
 {% endblock %}

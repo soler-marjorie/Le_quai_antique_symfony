@@ -1,18 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-      <main class="container">
+
+    <main class="container home" id="homeImg">
     
         <h1>Nos spécialités du moment ! </h1>
-        
-        {% for home in homes %}
-            <div>
+
+        <div class="image">
+            {% for home in homes %}
                 <img src="assets/img/{{home.src}}" width="250px" title="{{home.title}}"/>
-            </div>
-        {% endfor %}
-        
+            {% endfor %}
+        </div>
+
+        <button href="" class="btn btn-primary">Réservez une table</button>
+
     </main>  
+
 {% endblock %}
-
-    
-

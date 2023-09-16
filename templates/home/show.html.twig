@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <main class="container home" id="homeImg">
+    
+        <h1> Image : {{home.title}} </h1>
+
+        <p>Titre : {{home.title}}</p>
+        <p>Nom du fichier : {{home.src}}</p>
+
+        <button href="{{ path('app_home') }}" class="btn btn-primary">Retour à l'accueil</button>
+
+    </main>  
+
+{% endblock %}
