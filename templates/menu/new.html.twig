@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <main class="container">
+    
+        <h1>Formulaire d'ajout d'un plat | <a href="{{ path('app_menu') }}" class="btn btn-primary">Retour au menu</a></h1>
+
+        <hr>
+    
+        <div class="row">
+            {{ form_start(form) }}
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.formule) }}
+                    </div>
+                </div> 
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.plat) }}
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.title) }}
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.description) }}
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.price) }}
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Valider la création du plat</button>
+
+            {{ form_end(form)}}     
+        </div>
+
+        
+
+    
+    </main>  
+
+{% endblock %}

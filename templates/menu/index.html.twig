@@ -10,18 +10,16 @@
         <h2>{{formule.formules}} - {{formule.plat}}</h2>
 
         {% for menu in menus %} 
-        <div class="row">
-            {% if menu.plat == formule.plat%}
+            <div class="row">
+            {% if menu.plat == formule.plat %}
                 <div class="col-sm" style="width: 18rem;">
                     <h3>{{menu.title}}</h3>
                     <p>{{menu.description}}</p>
                     <p>{{menu.price}}€</p>
                 </div> 
             {% endif %}
-        </div>    
+            </div>    
         {% endfor %}
-
-        
         
     {% endfor %}
 

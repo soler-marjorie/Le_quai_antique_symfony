@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <main class="container">
+    
+        <h1>Formulaire d'ajout d'image | <a href="{{ path('app_home') }}" class="btn btn-primary">Retour à l'accueil</a></h1>
+
+        <hr>
+    
+        <div class="row">
+            {{ form_start(form) }}
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.title) }}
+                    </div>
+                </div> 
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        {{ form_widget(form.src) }}
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Valider la création de l'image</button>
+
+            {{ form_end(form)}}     
+        </div>
+
+    </main>  
+
+{% endblock %}
