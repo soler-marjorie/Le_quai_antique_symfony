@@ -5,9 +5,10 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User
+class User implements UserInterface, \Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -20,14 +21,14 @@ class User
     #[ORM\Column(length: 55)]
     private ?string $surname = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $password = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $role = null;
+    #[ORM\Column]
+    private array $roles = [];
 
     public function getId(): ?int
     {
@@ -82,15 +83,56 @@ class User
         return $this;
     }
 
-    public function getRole(): ?string
+    public function getRoles(): array
     {
-        return $this->role;
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
-    public function setRole(string $role): static
+    public function setRoles(array $roles): self
     {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
+
+    public function isAdmin(){
+        //return in_array('ROLE_ADMIN' => $this->getRoles());
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->email;
+    }
+
+    public function eraseCredentials()
+    {
+        //vide
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->name,
+            $this->surname,
+            $this->email,
+            $this->password
+        ));
+    }
+
+    public function unserialize($serialized) : void
+    {
+        list(
+            $this->id,
+            $this->name,
+            $this->surname,
+            $this->email,
+            $this->password
+        ) = unserialize($serialized);
+    }
+
+    
 }
