@@ -22,6 +22,9 @@ security:
                 
                 provider: my_provider
 
+            logout:
+                path: logout
+                target: app_main
 
 
             # activate different ways to authenticate

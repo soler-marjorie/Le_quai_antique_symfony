@@ -60,12 +60,12 @@
             </div>
 
             <div class="col text-end">
-                <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li class="nav-item">
-                        <a href="{{ path('login')}}" class="nav-link px-2">Se connecter</a>
-                    </li>
-                </ul>
-                <button type="button" class="btn btn-outline-primary me-2">S'inscrire</button>
+            {% if app.user %}
+                <a href="{{ path('logout')}}" class="nav-link px-2">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('login')}}" class="nav-link px-2">Se connecter</a>
+            {% endif %}
+                <a href="{{ path('app_register') }}" class="btn btn-outline-primary me-2">S'inscrire</a>
             </div>
         </header>
     </div> 

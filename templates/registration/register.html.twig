@@ -2,22 +2,21 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
+{% block main %}
+<div class="container example-wrapper">
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>S'enregistrer !</h1>
 
-    {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    <form action="{{ path('register') }}" method="post">
+        <input type="email" name="_username" value="{{ user.email }}" placeholder="Email de votre compte">
+        <input type="password" name="_password" placeholder="Mot de passe">
+        <input type="password" name="_password" placeholder="Confirmer le mot de passe">
+        <button type="submit" class="btn btn-outline-primary">Créer son compte</button>
+    </form>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
 {% endblock %}
+
